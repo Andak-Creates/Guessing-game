@@ -1,0 +1,127 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.color-game {
+  max-width: 500px;
+  margin: 50px auto;
+  background: linear-gradient(135deg, grey, white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #333;
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: 2px solid #000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animation for celebrating correct guesses */
+@keyframes correctGuess {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation for wrong guesses (fade-out) */
+@keyframes wrongGuess {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Trigger animations for the color box */
+.correct {
+  animation: correctGuess 1s ease-in-out;
+}
+
+.wrong {
+  animation: wrongGuess 1s ease-in-out;
+}
+
+.tries-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.try-icon {
+  font-size: 24px;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.color-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+
+.color-button:hover {
+  transform: scale(1.1);
+}
+
+button[data-testid="newGameButton"] {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[data-testid="newGameButton"]:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .color-game {
+    width: 90%;
+  }
+  .color-options {
+    gap: 5px;
+  }
+  .color-button {
+    width: 40px;
+    height: 40px;
+  }
+}
